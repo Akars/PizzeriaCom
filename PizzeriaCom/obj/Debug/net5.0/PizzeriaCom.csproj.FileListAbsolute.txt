@@ -1,0 +1,16 @@
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.exe
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.deps.json
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.runtimeconfig.json
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.runtimeconfig.dev.json
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.dll
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\ref\PizzeriaCom.dll
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\bin\Debug\net5.0\PizzeriaCom.pdb
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.csproj.AssemblyReference.cache
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.AssemblyInfoInputs.cache
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.AssemblyInfo.cs
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.csproj.CoreCompileInputs.cache
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.dll
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\ref\PizzeriaCom.dll
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.pdb
+C:\Users\wiwi9\RiderProjects\PizzeriaCom\PizzeriaCom\obj\Debug\net5.0\PizzeriaCom.genruntimeconfig.cache
