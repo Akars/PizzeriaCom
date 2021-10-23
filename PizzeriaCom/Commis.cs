@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using PizzeriaCom.MessageHandler;
 
 namespace PizzeriaCom
@@ -10,6 +12,7 @@ namespace PizzeriaCom
         private int commisID;
         private string nom;
         private List<Commande> commandeGerer;
+        public Commande commandeActuel;
         private Action<MessagePayload<Commande>> getCommand;
 
         public Action<MessagePayload<Commande>> GetCommand => getCommand;
@@ -23,20 +26,34 @@ namespace PizzeriaCom
             getCommand = this.receiveCommande;
         }
 
-        public void preparerCommande(Commande arg)
+        public async Task preparerCommande()
         {
-            MessageBrokerImpl.Instance.Publish(this, arg);
+            Console.WriteLine("&&&");
+            if (commandeActuel != null)
+            {
+                Console.WriteLine("&&&");
+                await Cuisine.CuisinerAsync(commandeActuel);
+            }
+        }
+
+        public async Task envoyerCommande()
+        {
+            Console.WriteLine("&&&");
+            if (commandeActuel != null)
+            {
+                Console.WriteLine("&&&");
+                await Livreur.LivrerAsync(commandeActuel);
+            }
         }
         public void receiveCommande(MessagePayload<Commande> arg) //methods that implementing Action
         {
-            if (arg.What.NomCommis == null)
-            {
-                Console.WriteLine("On a bien reçu votre commande. Vous serez livré dans peu de temps!");
-                arg.What.NomCommis = this.nom;
-                arg.What.Status1 = "En préparation";
-                commandeGerer.Add(arg.What);
-                arg.What.DisplayCommande();
-            }
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("On a bien reçu votre commande. Vous serez livré dans peu de temps!");
+            arg.What.NomCommis = this.nom;
+            arg.What.Status = CommandeStatus.Préparation.ToString();
+            commandeGerer.Add(arg.What);
+            commandeActuel = arg.What;
+            arg.What.DisplayCommande();
         }
     }
 }

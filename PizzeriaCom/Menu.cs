@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PizzeriaCom
 {
     public class Menu
     {
-        public static Pizza[] pizzas;
-        public static Boisson[] boissons;
+        public static List<Pizza> pizzas;
+        public static List<Boisson> boissons;
 
         public Menu()
         {
-            pizzas[0] = new Pizza("Tomate et fromage", 12);
-            pizzas[1] = new Pizza("Végétarienne", 12);
-            pizzas[2] = new Pizza("Toutes garnies", 15);
+            pizzas = new List<Pizza>();
+            boissons = new List<Boisson>();
+            pizzas.Add(new Pizza("Tomate et fromage", 12));
+            pizzas.Add(new Pizza("Végétarienne", 12));
+            pizzas.Add(new Pizza("Toutes garnies", 15));
 
-            boissons[0] = new Boisson("Coca", 3);
-            boissons[1] = new Boisson("Jus d'orange", 2);
+            boissons.Add(new Boisson("Coca", 3));
+            boissons.Add(new Boisson("Jus d'orange", 2));
         }
         public void PrintWelcomeClient()
         {

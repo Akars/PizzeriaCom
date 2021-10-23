@@ -1,31 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using PizzeriaCom.MessageHandler;
 
 namespace PizzeriaCom
 {
     public class Cuisine
     {
-        private Action<MessagePayload<Commande>> getCommand;
-        public Action<MessagePayload<Commande>> GetCommand => getCommand;
-        
-        private List<Commande> commandeAPreparer = new List<Commande>();
+        public static void Cuisiner(Commande arg) //methods that implementing Action
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("En préparation.....");
+            Thread.Sleep(20000);
+        }
 
-        public void Cuisiner()
+        public static async Task CuisinerAsync(Commande arg)
         {
-            getCommand = receiveCommande;
+            await Task.Run(() => Cuisiner(arg));
+            arg.Status = CommandeStatus.Livraison.ToString();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("La commande est prête !");
         }
-        
-        public void receiveCommande(MessagePayload<Commande> arg) //methods that implementing Action
-        {
-            if (arg.What.Status1 == "En préparation")
-            {
-                Console.WriteLine("En préparation");
-                arg.What.Status1 = CommandeStatus.Préparation.ToString();
-                commandeAPreparer.Add(arg.What);
-                arg.What.DisplayCommande();
-            }
-        }
-        
     }
 }

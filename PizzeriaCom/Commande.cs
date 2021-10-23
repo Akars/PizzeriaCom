@@ -40,7 +40,7 @@ namespace PizzeriaCom
             set => nomCommis = value;
         }
         
-        public string Status1
+        public string Status
         {
             get => status;
             set => status = value;
@@ -58,6 +58,18 @@ namespace PizzeriaCom
                 Console.WriteLine(item.Type);
             }
             Console.WriteLine("Status: " + status);
+        }
+
+        public float GetPrice()
+        {
+            float somme = 0;
+
+            foreach (var item in items)
+            {
+                somme += item.Prix;
+            }
+
+            return somme;
         }
     }
 }

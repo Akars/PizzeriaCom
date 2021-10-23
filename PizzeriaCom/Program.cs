@@ -1,28 +1,21 @@
 ﻿using System;
+using System.Threading.Tasks;
 using PizzeriaCom.MessageHandler;
 
 namespace PizzeriaCom
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            /*
             Commis commis = new Commis("Amaury");
-            Cuisine cuisine = new Cuisine();
-            MessageBrokerImpl.Instance.Subscribe(cuisine.GetCommand);
+            Livreur livreur = new Livreur("Titouan");
             MessageBrokerImpl.Instance.Subscribe(commis.GetCommand);
-            Client client = new Client("William", "Li", "24 rue ERIK SATIE", "010102101");
-            client.Commander();
-            commis.preparerCommande(new Commande("William"));
-            CommandeStatus status = CommandeStatus.Fermé;
-            Console.WriteLine(status);
-            System.Threading.Thread.Sleep(50000);
-            */
+            MessageBrokerImpl.Instance.Subscribe(livreur.GetItem);
             string choice;
             bool stop = false;
             Menu menu = new Menu();
-            Client newClient;
+            Client clientActuel = new Client("William", "LI", "30 avenue de la République", "010101010");
             
             menu.PrintWelcomeClient();
             choice = Console.ReadLine();
@@ -40,7 +33,7 @@ namespace PizzeriaCom
                     Console.WriteLine("Numéro: ");
                     string tel = Console.ReadLine();
 
-                    newClient = new Client(prenom, nom, adresse, tel);
+                    clientActuel = new Client(prenom, nom, adresse, tel);
                     Console.WriteLine("Hello " + prenom);
                 } 
                     break;
@@ -55,12 +48,14 @@ namespace PizzeriaCom
                 }
                     break;
             }
-            
-            while (!stop)
+
+            if (!stop)
             {
-                
+                clientActuel.Commander(menu);
+                await commis.preparerCommande();
+                await commis.envoyerCommande();
             }
-            
+
             Console.WriteLine("the end");
         }
 
