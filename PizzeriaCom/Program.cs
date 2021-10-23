@@ -55,8 +55,6 @@ namespace PizzeriaCom
                 await commis.preparerCommande();
                 await commis.envoyerCommande();
             }
-
-            Console.WriteLine("the end");
         }
 
     }

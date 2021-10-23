@@ -28,25 +28,29 @@ namespace PizzeriaCom
 
         public async Task preparerCommande()
         {
-            Console.WriteLine("&&&");
+            Thread.Sleep(4000);
+            Console.WriteLine("-");
+            Console.WriteLine("-");
             if (commandeActuel != null)
             {
-                Console.WriteLine("&&&");
                 await Cuisine.CuisinerAsync(commandeActuel);
+                Console.WriteLine(commandeActuel.Status);
             }
         }
 
         public async Task envoyerCommande()
         {
-            Console.WriteLine("&&&");
+            Console.WriteLine("-");
+            Console.WriteLine("-");
             if (commandeActuel != null)
             {
-                Console.WriteLine("&&&");
                 await Livreur.LivrerAsync(commandeActuel);
+                Console.WriteLine(commandeActuel.Status);
             }
         }
         public void receiveCommande(MessagePayload<Commande> arg) //methods that implementing Action
         {
+            Thread.Sleep(4000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("On a bien reçu votre commande. Vous serez livré dans peu de temps!");
             arg.What.NomCommis = this.nom;

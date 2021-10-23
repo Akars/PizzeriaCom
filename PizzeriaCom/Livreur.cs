@@ -34,7 +34,7 @@ namespace PizzeriaCom
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("La commande est livré !");
             arg.Status = CommandeStatus.Fermé.ToString();
-            Console.WriteLine("Le client a payé : " + arg.GetPrice() + " €");
+            Console.WriteLine("Le client a payé : " + arg.GetPrice() + " euros");
         }
     }
 }
